@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gut.Views.HomeView"
+             xmlns:viewmodels="clr-namespace:Gut.ViewModels"
+             xmlns:templates="clr-namespace:Gut.Views.Templates"
+             Title="Bluetooth 3.0">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="SenderBotItemTemplate">
+                <templates:SenderTemplate />
+            </DataTemplate>
+            <DataTemplate x:Key="ReceiverBotItemTemplate">
+                <templates:ReceiverTemplate/>
+            </DataTemplate>
+            <templates:SelectorTemplate
+                x:Key="BotDataTemplateSelector"
+                SenderMessageTemplate="{StaticResource SenderBotItemTemplate}"
+                ReceiverMessageTemplate="{StaticResource ReceiverBotItemTemplate}"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid      
+            BackgroundColor="{StaticResource BlueColor}"
+            RowDefinitions="60, 60, 60, 60, 60, 60, 60, *">
+            <Grid
+                Grid.Row="0"
+                Padding="10, 10, 10, 10">
+                <Grid
+                    ColumnDefinitions="120, *, 120, *, 120">
+                    <Grid
+                        Grid.Column="0">
+                        <Button
+                            x:Name="btnSetUp"
+                            Text="Blue SetUp" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding SetUpCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="2">
+                        <Button
+                            x:Name="btnScan"
+                            Text="Blue Scan" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding ScanCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="4">
+                        <Button
+                            x:Name="btnUpdate"
+                            Text="Blue Update" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding UpdateCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Padding="10, 10, 10, 10">
+                <Grid
+                    ColumnDefinitions="120, *, 120, *, 120">
+                    <Grid
+                        Grid.Column="0">
+                        <Button
+                            x:Name="btnSetUpWiFi"
+                            Text="Wi-Fi SetUp" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding SetUpWiFiCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="2">
+                        <Button
+                            x:Name="btnScanWiFi"
+                            Text="Wi-Fi Scan" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding ScanWiFiCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="4">
+                        <Button
+                            x:Name="btnUpdateWiFi"
+                            Text="Wi-Fi Update" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding UpdateWiFiCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                Padding="10, 10, 10, 10">
+                <Grid
+                    ColumnDefinitions="120, *, 120, *, 120">
+                    <Grid
+                        Grid.Column="0">
+                        <Button
+                            x:Name="btnList"
+                            Text="List" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding ListCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="2">
+                        <Button
+                            x:Name="btnSend"
+                            Text="Save File" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding SendCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="4">
+                        <Button
+                            x:Name="btnNetWork"
+                            Text="Ping" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding NetCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid
+                Grid.Row="3"
+                Padding="10, 10, 10, 10">
+                <Grid
+                    ColumnDefinitions="120, *, 120, *, 120">
+                    <Grid
+                        Grid.Column="0">
+                        <Button
+                            x:Name="btnVPN"
+                            Text="VPN" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding VPNCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="2">
+                        <Button
+                            x:Name="btnExit"
+                            Text="Exit" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding ExitCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="4">
+                        <Button
+                            x:Name="btnToken"
+                            Text="Token" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding TokenCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid
+                Grid.Row="4"
+                Padding="10, 10, 10, 10">
+                <Grid
+                    ColumnDefinitions="120, *, 120, *, 120">
+                    <Grid
+                        Grid.Column="0">
+                        <Label Text="Copy"
+                            TextColor="{StaticResource WhiteColor}"
+                            FontAttributes="Bold"
+                            Margin="10, 10, 0, 0"/>
+                        <Switch 
+                            x:Name="swtCopy"
+                            x:DataType="viewmodels:HomeViewModel"
+                            IsToggled="{Binding IsCopy}"
+                            ThumbColor="{StaticResource WhiteColor}"
+                            Margin="50, 0, 0, 0"
+                            HorizontalOptions="Start"/>
+                    </Grid>
+                    <Grid
+                        Grid.Column="2">
+                        <Button
+                            x:Name="btnSMS"
+                            Text="SMS" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding SMSCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="4">
+                        <Button
+                            x:Name="btnSMSSIM"
+                            Text="SIM" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding SIMCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid
+                Grid.Row="5"
+                Padding="10, 10, 10, 10">
+                <Grid
+                    ColumnDefinitions="120, *, 120, *, 120">
+                    <Grid
+                        Grid.Column="0">
+                        <Button
+                            x:Name="btnSIMCurrent"
+                            Text="SIM Current" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding CurrentSIMCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="2">
+                        <Button
+                            x:Name="btnSMSScan"
+                            Text="SMS Scan" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding ScanSMSCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                    <Grid
+                        Grid.Column="4">
+                        <Button
+                            x:Name="btnSMSUpdate"
+                            Text="SMS Update" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            x:DataType="viewmodels:HomeViewModel"
+                            Command="{Binding UpdateSMSCommand}"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid
+                Grid.Row="6"
+                Padding="10, 10, 10, 10">
+                <Grid
+                    ColumnDefinitions="120, *, 120, *, 120">
+                    <Grid
+                        Grid.Column="0">
+                        <Button
+                            x:Name="btnCamera"
+                            Text="Camera" 
+                            BackgroundColor="{StaticResource WhiteColor}"
+                            Clicked="btnCamera_Clicked"
+                            HorizontalOptions="Fill" />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid
+                Grid.Row="7">
+                <BoxView
+                    Margin="0, 0, 0, 0"
+                    CornerRadius="24, 24, 0, 0"
+                    Color="{StaticResource WhiteColor}"/> 
+                <Grid
+                    RowDefinitions="*, Auto">
+                    <Grid
+                        Grid.Row="0">
+                        <CollectionView 
+                            x:DataType="viewmodels:HomeViewModel"
+                            ItemsSource="{Binding Messages}"
+                            ItemsUpdatingScrollMode="KeepLastItemInView"
+                            ItemTemplate="{StaticResource BotDataTemplateSelector}"
+                            Margin="18, 20, 18, 0"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

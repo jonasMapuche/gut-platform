@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gut.Resources.Styles.MyStyles">
+
+    <!--
+    Pattern
+        BoxView => box
+        CollectionView => colView
+        Grid = grid
+        Image => img
+        Ellipse => elps
+        Label => lbl 
+        Button => btn
+        SwipeItem => si
+        Picker => pck
+        Switch => swt
+        Slider => sld
+        ToolbarItem => tbi
+        Border => bor
+    Home
+        ChatHomeBoxViewStyle => boxHomeView
+        ChatHomeCollectionViewStyle => colViewHomeView
+        NewBotHomeGridStyle => gridHomeView
+        elpsBotView => elpsHomeView 
+        NewBotHomeImageStyle => imgHomeView
+        ContainerHomeItemGridStyle => gridHomeItemTemplate
+        HomeItemEllipseStyle => elpsHomeItemTemplate
+        HomeItemImageStyle => imgHomeItemTemplate
+        NameHomeItemLabelStyle => lblNameHomeItemTemplate
+        MessageHomeItemLabelStyle => lblMessageHomeItemTemplate
+        UserSettingLabelStyle => lblTitleSettingView
+        AdornerSettingBoxViewStyle => boxSettingView
+        NavigationBotGridStyle => gridBotView
+        lblTitleSettingView = lblTitleBotView
+        boxSettingView = boxBotView
+        UserContainerBotGridStyle => gridUserBotView
+        UserBotLabelStyle => lblUserBotView
+        UserBotEllipseStyle => elpsUserBotView
+        UserBotImageStyle => imgUserBotView
+        ChatEntryBotGridStyle => gridEntryBotView
+        ContainerBotGridStyle => gridButtonBotView
+        elpsUserBotView => elpsButtonBotView
+        ChatEntryBotImageStyle => imgButtonBotView
+        ContainerReceiverBotItemGridStyle => gridReceiverBotItemTemplate
+        ContainerSenderBotItemGridStyle => gridSenderBotItemTemplate
+        ChatBotCollectionViewStyle => colViewMessageBotView
+        ShapeReceiverBotItemBoxViewStyle => boxReceiverBotItemTemplate
+        MessageReceiverBotItemLabelStyle => lblReceiverBotItemTemplate
+        ShapeSenderBotItemGridStyle => gridBotSenderBotItemTemplate
+        SenderBotItemEllipseStyle => elpsBotSenderBotItemTemplate
+        SenderBotItemImageStyle => imgBotSenderBotItemTemplate
+        SenderBotItemBoxViewStyle => boxBotSenderBotItemTemplate
+        SenderBotItemLabelStyle => lblBotSenderBotItemTemplate
+-->
+
+</ResourceDictionary>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Gut.Models"
+             x:Class="Gut.Views.Templates.ReceiverTemplate">
+    <ContentView.Content>
+        <Grid
+            ColumnDefinitions="Auto, *"
+            Margin="8">
+            <Grid 
+                Grid.Column="1">
+                <BoxView
+                    CornerRadius="24, 24, 0, 24"
+                    Color="{StaticResource MessageColor}"/>
+                <Label 
+                    x:DataType="models:Message"
+                    Text="{Binding Text}"
+                    TextColor="{StaticResource BackgroundColor}"
+                    FontSize="18"
+                    Padding="12"
+                    MaxLines="10"
+                    LineBreakMode="TailTruncation"
+                    Margin="12, 12, 12, 0"/>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

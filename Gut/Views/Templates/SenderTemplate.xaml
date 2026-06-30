@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Gut.Models"
+             xmlns:viewmodels="clr-namespace:Gut.ViewModels"
+             x:Class="Gut.Views.Templates.SenderTemplate">
+    <ContentView.Content>
+        <Grid
+            ColumnDefinitions="Auto, *, Auto"
+            Margin="8">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer 
+                    x:DataType="models:Message"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:HomeViewModel}}, Path=BotCommand}"      
+                    CommandParameter="{Binding Implied}"/>
+            </Grid.GestureRecognizers>
+            <Grid
+                Grid.Column="0"
+                HeightRequest="44"
+                WidthRequest="44"
+                VerticalOptions="End">
+            </Grid>
+            <Grid
+                Grid.Column="1">
+                <BoxView
+                    CornerRadius="24, 24, 0, 24"
+                    Color="{StaticResource MessageColor}"/>
+                <Label 
+                    x:DataType="models:Message"
+                    Text="{Binding Text}"
+                    TextColor="{StaticResource BackgroundColor}"
+                    FontSize="18"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="10"
+                    Margin="12, 12, 12, 0"/>
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

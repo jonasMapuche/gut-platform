@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gut.Resources.Styles.MyColors">
+
+    <Color x:Key="PrimaryColor">#01574f</Color>
+    <Color x:Key="SecondaryColor">#01574f</Color>
+
+    <Color x:Key="MessageColor">#F7F7F8</Color>
+    <Color x:Key="CircularButton">#868BCB</Color>
+    <Color x:Key="FabColor">#03d9c4</Color>
+    <Color x:Key="LetterColor">#01574f</Color>
+    <Color x:Key="BackgroundColor">#374955</Color>
+    <Color x:Key="WhiteColor">#FFFFFF</Color>
+    <Color x:Key="PlusColor">#FF95A2</Color>
+    <Color x:Key="ModalColor">#80000000</Color>
+
+    <Color x:Key="BlueColor">#512BD4</Color>
+    <Color x:Key="TransparentColor">#f6f6f4</Color>
+
+</ResourceDictionary>

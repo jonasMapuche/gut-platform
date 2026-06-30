@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gut.Views.ModalView"
+             Shell.PresentationMode="ModalAnimated"
+             Shell.BackgroundColor="{StaticResource LetterColor}"
+             Shell.ForegroundColor="{StaticResource WhiteColor}"
+             BackgroundColor="{StaticResource ModalColor}">
+    <ContentPage.Content>
+        <Grid
+            BackgroundColor="{StaticResource ModalColor}" 
+            Padding="10"
+            RowDefinitions="40, 30">
+            <Grid
+                Grid.Row="0">
+                <ActivityIndicator IsRunning="True" 
+                    Color="{StaticResource WhiteColor}" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" />
+            </Grid>
+            <Grid 
+                Grid.Row="1">
+                <Label 
+                    Text="Processing, please wait..." 
+                    TextColor="{StaticResource WhiteColor}" 
+                    HorizontalOptions="Center"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
