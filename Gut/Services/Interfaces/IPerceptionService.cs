@@ -20,5 +20,9 @@ namespace Gut.Services.Interfaces
         List<Message> ReceiverSMS();
         List<Message> SMSSIM();
         Message CurrentSIM();
+        void PhoneCall();
+        void PhoneScan();
+        List<Message> ReceiverUpdate();
+        Task AudioCall();
     }
 }

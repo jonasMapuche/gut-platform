@@ -12,8 +12,10 @@ namespace Gut.Services
         IWiFiService _wiFiService;
         IVPNClientService _vPNClientService;
         ISMSService _sMSService;
+        IPhoneService _phoneService;
+        ITTSService _tTSService;
 
-        public PerceptionService(IBluetoothService bluetoothService, IWiFiService wiFiService, IVPNClientService vPNClientService, ISMSService sMSService)
+        public PerceptionService(IBluetoothService bluetoothService, IWiFiService wiFiService, IVPNClientService vPNClientService, ISMSService sMSService, IPhoneService phoneService, ITTSService tTSService)
         {
             try
             {
@@ -22,6 +24,8 @@ namespace Gut.Services
                 this._wiFiService = wiFiService;
                 this._vPNClientService = vPNClientService;
                 this._sMSService = sMSService;
+                this._phoneService = phoneService;
+                this._tTSService = tTSService;
                 MountPath();
             }
             catch (Exception ex)
@@ -279,6 +283,18 @@ namespace Gut.Services
             {
                 string file_path = await CreateFileUTF8("Olá!");
                 string file_name = Path.GetFileName(file_path);
+                await SaveStream(file_path, file_name);
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        private async Task SaveStream(string file_path, string file_name)
+        {
+            try
+            {
                 FileStream fs = new FileStream(file_path, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, true);
                 MemoryStream memory_stream = new MemoryStream();
                 await fs.CopyToAsync(memory_stream);
@@ -372,6 +388,58 @@ namespace Gut.Services
             try
             {
                 return this._sMSService.NetworkCurrent();
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        public void PhoneCall()
+        {
+            try
+            {
+                this._phoneService.Call("983983590");
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        public void PhoneScan()
+        { 
+            try
+            {
+                this._phoneService.Scan();
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        public List<Message> ReceiverUpdate()
+        {
+            try
+            {
+                return this._phoneService.Receiver;
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        public async Task AudioCall()
+        {
+            try
+            {
+                string text = "play";
+                string file_name = MountFileName("wav");
+                string file_path = MountFilePath(file_name);
+                await SaveStream(file_path, file_name);
+                this._phoneService.Call("983983590", file_path);
             }
             catch (Exception ex)
             {

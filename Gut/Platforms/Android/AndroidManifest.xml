@@ -8,6 +8,22 @@
 				<action android:name="android.net.VpnService" />
 			</intent-filter>
 		</service>
+		<service android:name=".Services.PhoneConnectionService"
+             android:permission="android.permission.BIND_INCALL_SERVICE"
+             android:exported="true">
+			<intent-filter>
+				<action android:name="android.telecom.ConnectionService" />
+			</intent-filter>
+		</service>
+		<!--
+		<service android:name=".Services.PhoneConnectionService"
+             android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE"
+             android:exported="true">
+			<intent-filter>
+				<action android:name="android.telecom.ConnectionService" />
+			</intent-filter>
+		</service>
+		-->
 		<receiver
 			android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
 			android:exported="false" />
@@ -23,14 +39,20 @@
 		</receiver>
 	</application>
 
+	<uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+	<uses-permission android:name="android.permission.CALL_PHONE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+	<uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+	<uses-permission android:name="android.permission.READ_CALL_LOG" />
+	<uses-permission android:name="android.permission.BIND_SCREENING_SERVICE" />
+
 	<uses-permission android:name="android.permission.SEND_SMS" />
 	<uses-feature android:name="android.hardware.telephony" android:required="false" />
 	
 	<uses-permission android:name="android.permission.RECEIVE_SMS" />
 	<uses-permission android:name="android.permission.READ_SMS" />
-
-	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-	<uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
 
 	<uses-permission android:name="android.permission.BIND_VPN_SERVICE" />
 	<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />

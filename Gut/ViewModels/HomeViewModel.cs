@@ -1,10 +1,8 @@
-﻿using Android.Content.Res;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Gut.Models;
 using Gut.Services;
 using Gut.Services.Interfaces;
-using Gut.Views;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 
@@ -36,7 +34,10 @@ namespace Gut.ViewModels
         public ICommand UpdateSMSCommand { get; set; }
         public ICommand CurrentSIMCommand { get; set; }
         public ICommand CameraCommand { get; set; }
-
+        public ICommand CallCommand { get; set; }
+        public ICommand ReceiveCommand { get; set; }
+        public ICommand UpdateReceiveCommand { get; set; }
+        public ICommand CallAudioCommand { get; set; }
 
         IPerceptionService _perceptionService;
 
@@ -77,9 +78,63 @@ namespace Gut.ViewModels
                 UpdateSMSCommand = new AsyncRelayCommand(OnUpdateSMSCommand);
                 CurrentSIMCommand = new AsyncRelayCommand(OnCurrentSIMCommand);
                 CameraCommand = new AsyncRelayCommand(OnCameraCommand);
+                CallCommand = new AsyncRelayCommand(OnCallCommand);
+                ReceiveCommand = new AsyncRelayCommand(OnReceiveCommand);
+                UpdateReceiveCommand = new AsyncRelayCommand(OnUpdateReceiveCommand);
+                CallAudioCommand = new AsyncRelayCommand(OnCallAudioCommand);
 
                 Messages = new ObservableCollection<Message>();
                 this._perceptionService = perceptionService;
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        private async Task OnCallAudioCommand()
+        {
+            try
+            {
+                await this._perceptionService.AudioCall();
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        private async Task OnUpdateReceiveCommand()
+        {
+            try
+            {
+                List<Message> memos = this._perceptionService.ReceiverUpdate();
+                UpdateSMS(memos);
+                this._perceptionService.PhoneScan();
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        private async Task OnReceiveCommand()
+        {
+            try
+            {
+                this._perceptionService.PhoneScan();
+            }
+            catch (Exception ex)
+            {
+                throw new NotImplementedException(ex.Message);
+            }
+        }
+
+        private async Task OnCallCommand()
+        {
+            try
+            {
+                this._perceptionService.PhoneCall();
             }
             catch (Exception ex)
             {

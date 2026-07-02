@@ -37,6 +37,8 @@ namespace Gut
             builder.Services.AddSingleton<IWiFiService, WiFiService>();
             builder.Services.AddSingleton<IVPNClientService, VPNClientService>();
             builder.Services.AddSingleton<ISMSService, SMSService>();
+            builder.Services.AddSingleton<IPhoneService, PhoneService>();
+            builder.Services.AddSingleton<ITTSService, TTSService>();
 #endif
 
             builder.Services.AddSingleton<PerceptionService>();
